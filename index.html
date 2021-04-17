@@ -1,0 +1,63 @@
+<html>
+  <head>
+  <title>Bouncing Betty</title>
+  <script type="text/javascript" src="assets/Paddle.js"></script>
+  <script type="text/javascript" src="assets/Ball.js"></script>
+  </head>
+  <body>
+  <script>
+var animate = window.requestAnimationFrame ||
+window.webkitRequestAnimationFrame ||
+window.mozRequestAnimationFrame ||
+function(callback) { window.setTimeout(callback, 1000/60)};
+
+//module 
+let canvas = document.createElement('canvas');
+let width = 700;
+let height = 600;
+canvas.width = width;
+canvas.height = height;
+let context = canvas.getContext('2d');
+let player = new Paddle(200, 590, 175, 10);
+let ball = new Ball(300, 300);
+
+
+
+//controls
+const update = () =>{
+  ball.update(player)
+};
+
+//splat
+const renderPlayer = () =>{
+  context.fillStyle = "#0000FF";
+  context.fillRect(player.x, player.y, player.width, player.height);
+};
+
+const renderBall = () =>{
+  context.beginPath();
+  context.arc(ball.x, ball.y, ball.radius, 2 * Math.PI, false);
+  context.fillStyle = "#000000";
+  context.fill();
+};
+
+const scene = () => {
+    context.fillStyle = "#00ccff";
+    context.fillRect(0, 0, width, height);
+    renderPlayer();
+    renderBall();
+};
+
+const step = () => {
+    update();
+    scene();
+    animate(step);
+};
+
+window.onload = () => {
+    document.body.appendChild(canvas);
+    animate(step);
+};
+  </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "bounce",
+  "version": "1.0.0",
+  "description": "bouncing betty game",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server",
+    "start": "node server.js"
+  },
+  "author": "Devin SUttles",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
