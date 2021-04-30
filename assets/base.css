@@ -1,0 +1,25 @@
+.topnav{
+    background-color: black;
+    margin-bottom: 1pt;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 400% !important;
+    margin: 20px 0px;
+    font-family: videophreak;
+  }
+
+  @font-face {
+    font-family: videophreak;
+    src: url("fonts/VIDEOPHREAK.ttf");
+  }
+
+canvas {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+}
