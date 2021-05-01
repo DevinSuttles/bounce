@@ -1,10 +1,15 @@
 <html>
   <head>
-  <title>Bouncing Betty</title>
+  <title>Bounce</title>
+  <link href="assets/base.css" rel="stylesheet">
   <script type="text/javascript" src="assets/Paddle.js"></script>
   <script type="text/javascript" src="assets/Ball.js"></script>
   </head>
   <body>
+  <div class="topnav">
+    <a class="navbar-brand" href="#">Bounces</a>
+    <a id="navbar-score">0</a>
+  </div>
   <script>
 var animate = window.requestAnimationFrame ||
 window.webkitRequestAnimationFrame ||
@@ -18,17 +23,22 @@ let height = 600;
 canvas.width = width;
 canvas.height = height;
 let context = canvas.getContext('2d');
-let player = new Paddle(200, 590, 175, 10);
-let ball = new Ball(300, 300);
+let player = new Paddle(300, 590, 175, 10);
+let ball = new Ball(375, 300);
 
+window.addEventListener("keydown", (event) =>{
+  player.keysDown[event.keyCode] = true;
+});
 
+window.addEventListener("keyup", (event) =>{
+  delete player.keysDown[event.keyCode];
+});
 
-//controls
 const update = () =>{
-  ball.update(player)
+  ball.update(player);
+  player.update();
 };
 
-//splat
 const renderPlayer = () =>{
   context.fillStyle = "#0000FF";
   context.fillRect(player.x, player.y, player.width, player.height);
@@ -42,7 +52,7 @@ const renderBall = () =>{
 };
 
 const scene = () => {
-    context.fillStyle = "#00ccff";
+    context.fillStyle = "#14bdf5";
     context.fillRect(0, 0, width, height);
     renderPlayer();
     renderBall();
@@ -58,6 +68,6 @@ window.onload = () => {
     document.body.appendChild(canvas);
     animate(step);
 };
-  </script>
+</script>
   </body>
 </html>
