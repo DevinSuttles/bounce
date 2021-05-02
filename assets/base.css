@@ -1,6 +1,12 @@
 .topnav{
     background-color: black;
-    margin-bottom: 1pt;
+}
+
+#navbar-score{
+  color: white !important;
+  font-size: 400% !important;
+  font-family: videophreak;
+  margin-left: 40px;
 }
 
 .navbar-brand {
@@ -15,11 +21,9 @@
     src: url("fonts/VIDEOPHREAK.ttf");
   }
 
-canvas {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin:auto;
+canvas{
+  padding: 0;
+  margin: auto;
+  display: block;
+  width: 800px;
 }
